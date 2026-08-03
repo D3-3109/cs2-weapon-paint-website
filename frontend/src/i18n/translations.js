@@ -1,8 +1,9 @@
 import fr from "./locales/fr.js";
 import ru from "./locales/ru.js";
 import uk from "./locales/uk.js";
+import zh from "./locales/zh.js";
 
-export const LOCALES = ["en", "pl", "de", "fr", "ru", "uk"];
+export const LOCALES = ["en", "pl", "de", "fr", "ru", "uk", "zh"];
 export const DEFAULT_LOCALE = "en";
 export const STORAGE_KEY = "wp_locale";
 
@@ -22,11 +23,12 @@ const sharedCookiesEn = {
   cookieConsentCookiePurpose:
     "Backup copy of consent if localStorage is cleared.",
   cookieConsentCookieDuration: "Up to 400 days (browser maximum)",
-  cookieLocalePurpose: "Remembers UI language (EN / PL / DE / FR / RU / UK).",
+  cookieLocalePurpose: "Remembers UI language (EN / PL / DE / FR / RU / UK / ZH).",
   cookieLocaleDuration: "Until you clear site data",
 };
 
 export const translations = {
+  zh,
   en: {
     brand: "Weapon Paints",
     signInHeading: "Sign in with Steam",

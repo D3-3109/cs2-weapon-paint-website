@@ -69,7 +69,7 @@ Screenshots live in the repo under [`readme/`](readme/) so they stay with the pr
 - Named saved loadouts (team or both); optional public copy
 - Full loadout view: compare T/CT, reset skin/team/both
 - Optional beta 3D preview (`BETA_3D`)
-- i18n: English, Polish, German, French, Russian, Ukrainian
+- i18n: English, Polish, German, French, Russian, Ukrainian, Simplified Chinese
 - PWA-ready frontend assets
 
 ## Structure

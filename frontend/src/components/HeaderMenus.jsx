@@ -10,6 +10,7 @@ const LOCALE_META = {
   fr: { flagSrc: '/images/flags/fr.svg', name: 'Français' },
   ru: { flagSrc: '/images/flags/ru.svg', name: 'Русский' },
   uk: { flagSrc: '/images/flags/uk.svg', name: 'Українська' },
+  zh: { flagSrc: '/images/flags/zh.svg', name: '简体中文' },
 }
 
 function useIsMobile(query = '(max-width: 767px)') {
