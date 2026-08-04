@@ -228,6 +228,7 @@ async function main() {
     `${BACKEND_HOST}:${BACKEND_PORT}`,
     '-t',
     backendDir,
+    path.join(backendDir, 'router.php'),
   ]
   const backendCmd = [quote(runtime.bin), ...phpArgs.map(quote)].join(' ')
 

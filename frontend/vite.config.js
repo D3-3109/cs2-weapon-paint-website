@@ -5,8 +5,22 @@ import { fileURLToPath } from 'url'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
+function qrQueryRoute() {
+  return {
+    name: 'qr-query-route',
+    configureServer(server) {
+      server.middlewares.use((req, _res, next) => {
+        if (req.url?.startsWith('/?qr=')) {
+          req.url = `/qr.php${req.url.slice(1)}`
+        }
+        next()
+      })
+    },
+  }
+}
+
 export default defineConfig({
-  plugins: [react()],
+  plugins: [qrQueryRoute(), react()],
   server: {
     host: true,
     port: 5173,
@@ -14,6 +28,18 @@ export default defineConfig({
       allow: [path.resolve(__dirname, '..')],
     },
     proxy: {
+      '/images_qr': {
+        target: 'http://127.0.0.1:8080',
+        changeOrigin: true,
+      },
+      '/login/steamid': {
+        target: 'http://127.0.0.1:8080',
+        changeOrigin: true,
+      },
+      '/qr.php': {
+        target: 'http://127.0.0.1:8080',
+        changeOrigin: true,
+      },
       // Lokalne testy: /api/* → PHP built-in server (pnpm run dev)
       '/api': {
         target: 'http://127.0.0.1:8080',

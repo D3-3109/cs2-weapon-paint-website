@@ -17,7 +17,8 @@ function shouldCopy(src) {
   if (
     (lower.includes(`${path.sep}storage${path.sep}sessions${path.sep}`) ||
       lower.includes(`${path.sep}storage${path.sep}cache${path.sep}`) ||
-      lower.includes(`${path.sep}storage${path.sep}ratelimit${path.sep}`)) &&
+      lower.includes(`${path.sep}storage${path.sep}ratelimit${path.sep}`) ||
+      lower.includes(`${path.sep}storage${path.sep}images_qr${path.sep}`)) &&
     base !== '.gitignore' &&
     base !== 'cache_version' &&
     base !== 'CACHE_VERSION'
@@ -35,5 +36,6 @@ fse.copySync(backendSrc, backendDest, {
 fse.ensureDirSync(path.join(backendDest, 'storage', 'sessions'))
 fse.ensureDirSync(path.join(backendDest, 'storage', 'cache'))
 fse.ensureDirSync(path.join(backendDest, 'storage', 'ratelimit'))
+fse.ensureDirSync(path.join(backendDest, 'storage', 'images_qr'))
 
 console.log('Backend copied to dist/api (no config.php, no session files)')

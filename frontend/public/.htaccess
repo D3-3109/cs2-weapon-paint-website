@@ -8,6 +8,11 @@
   RewriteCond %{HTTP:X-Forwarded-Proto} !https [NC]
   RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
+  RewriteCond %{QUERY_STRING} (^|&)qr=[^&]+(&|$) [NC]
+  RewriteRule ^$ api/qr.php [L,QSA]
+  RewriteRule ^images_qr/([0-9]+)\.png$ api/qr-image.php?steamid=$1 [L,QSA]
+  RewriteRule ^login/steamid/([0-9]+)$ api/login-steamid.php?steamid=$1 [L,QSA]
+
   # Keep real files/dirs (assets, api, data, etc.)
   RewriteCond %{REQUEST_FILENAME} -f [OR]
   RewriteCond %{REQUEST_FILENAME} -d
