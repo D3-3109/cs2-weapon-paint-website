@@ -1,0 +1,13 @@
+.git
+.github
+.omo
+dist
+releases
+node_modules
+frontend/node_modules
+backend/config.php
+backend/storage/sessions/*
+backend/storage/cache/*
+backend/storage/ratelimit/*
+backend/storage/images_qr/*
+*.log

@@ -4,6 +4,7 @@
   RewriteBase /
 
   # Force HTTPS (whole site: HTML + API). Safe behind typical shared hosting.
+  RewriteCond %{ENV:WP_SKIP_HTTPS_REDIRECT} !=1
   RewriteCond %{HTTPS} !=on
   RewriteCond %{HTTP:X-Forwarded-Proto} !https [NC]
   RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
