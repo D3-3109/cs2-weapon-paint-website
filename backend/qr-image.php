@@ -1,14 +1,12 @@
 <?php
 
-require_once __DIR__ . '/class/SteamId.php';
-
-$steamid = wp_parse_steamid64(isset($_GET['steamid']) ? (string) $_GET['steamid'] : null);
-if ($steamid === null) {
+$sessionId = (string) ($_GET['session_id'] ?? '');
+if (!preg_match('/^sess_[A-Za-z0-9_-]+$/', $sessionId)) {
     http_response_code(400);
     exit;
 }
 
-$file = __DIR__ . '/storage/images_qr/' . $steamid . '.png';
+$file = __DIR__ . '/storage/images_qr/' . $sessionId . '.png';
 if (!is_file($file)) {
     http_response_code(404);
     exit;

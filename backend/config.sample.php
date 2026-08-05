@@ -3,6 +3,7 @@
 
 // 🔑 Steam + Domain
 define('STEAM_API_KEY', 'STEAMAPI KEY');         // Replace with your actual Steam API key
+define('GAME_SERVER_API_KEY', 'your-game-server-api-key'); // Bearer key used by the CS2 plugin
 define('DOMAIN_NAME', 'https://YOURDOMAINNAME.com');     // Replace with your domain name
 
 // 🛠️ MySQL credentials
@@ -40,3 +41,6 @@ define('STEAM_LOGIN_PAGE', API_DOMAIN_NAME . '/steamauth/login.php');
 // Skips MySQL when revision unchanged. Busted automatically on save/reset.
 // Defaults to 5 seconds. Set to 0 to disable.
 // define('API_READ_CACHE_TTL', 5);
+
+// One-time QR login lifetime (seconds).
+// define('QR_LOGIN_TTL', 300);

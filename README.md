@@ -90,6 +90,7 @@ Config template: `backend/config.sample.php` (copy to `config.php`, never commit
 2. Copy `api/config.sample.php` to `api/config.php` and set:
 
 - Steam Web API key
+- A long random `GAME_SERVER_API_KEY` shared only with the CS2 plugin
 - Domain name
 - MySQL host, port, database, user, password
 
@@ -158,6 +159,7 @@ Optional API protection (defaults apply if omitted):
 define('API_RATE_LIMIT', 120);      // requests / window (0 = off)
 define('API_RATE_WINDOW', 60);      // seconds
 define('API_READ_CACHE_TTL', 5);    // skip MySQL for identical reads (0 = off)
+define('QR_LOGIN_TTL', 300);         // one-time QR login lifetime in seconds
 ```
 
 Cache build id (`backend/storage/cache/CACHE_VERSION`) is bumped automatically by `pnpm dev` and `pnpm release`, which also wipes PHP read/rate-limit cache files. Manual: `pnpm cache:bump`.

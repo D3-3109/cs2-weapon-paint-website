@@ -15,16 +15,19 @@ chown -R www-data:www-data "$storage_dir"
 
 export DOMAIN_NAME="${DOMAIN_NAME%/}"
 export STEAM_API_KEY="${STEAM_API_KEY:-}"
+export GAME_SERVER_API_KEY="${GAME_SERVER_API_KEY:-}"
 export DB_PORT="${DB_PORT:-3306}"
 export SESSION_LIFETIME="${SESSION_LIFETIME:-2592000}"
 export API_RATE_LIMIT="${API_RATE_LIMIT:-120}"
 export API_RATE_WINDOW="${API_RATE_WINDOW:-60}"
 export API_READ_CACHE_TTL="${API_READ_CACHE_TTL:-5}"
+export QR_LOGIN_TTL="${QR_LOGIN_TTL:-300}"
 export SSL_REDIRECT="${SSL_REDIRECT:-false}"
 
 cat > "$api_dir/config.php" <<PHP
 <?php
 define('STEAM_API_KEY', getenv('STEAM_API_KEY') ?: '');
+define('GAME_SERVER_API_KEY', getenv('GAME_SERVER_API_KEY') ?: '');
 define('DOMAIN_NAME', rtrim((string) getenv('DOMAIN_NAME'), '/'));
 define('DB_HOST', (string) getenv('DB_HOST'));
 define('DB_PORT', getenv('DB_PORT') ?: '3306');
@@ -35,6 +38,7 @@ define('SESSION_LIFETIME', (int) (getenv('SESSION_LIFETIME') ?: 2592000));
 define('API_RATE_LIMIT', (int) (getenv('API_RATE_LIMIT') ?: 120));
 define('API_RATE_WINDOW', (int) (getenv('API_RATE_WINDOW') ?: 60));
 define('API_READ_CACHE_TTL', (int) (getenv('API_READ_CACHE_TTL') ?: 5));
+define('QR_LOGIN_TTL', (int) (getenv('QR_LOGIN_TTL') ?: 300));
 define('SSL_REDIRECT', getenv('SSL_REDIRECT') ?: 'false');
 define('API_DOMAIN_NAME', DOMAIN_NAME . '/api');
 define('STEAM_DOMAIN_NAME', API_DOMAIN_NAME);

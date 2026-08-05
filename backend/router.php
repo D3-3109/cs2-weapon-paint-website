@@ -6,16 +6,14 @@ if ($path === '/' && isset($_GET['qr'])) {
     require __DIR__ . '/qr.php';
     return true;
 }
-
-if (preg_match('#^/images_qr/([0-9]+)\.png$#D', $path, $matches)) {
-    $_GET['steamid'] = $matches[1];
-    require __DIR__ . '/qr-image.php';
+if ($path === '/qr-login' && isset($_GET['token'])) {
+    require __DIR__ . '/qr-login.php';
     return true;
 }
 
-if (preg_match('#^/login/steamid/([0-9]+)$#D', $path, $matches)) {
-    $_GET['steamid'] = $matches[1];
-    require __DIR__ . '/login-steamid.php';
+if (preg_match('#^/images_qr/(sess_[A-Za-z0-9_-]+)\.png$#D', $path, $matches)) {
+    $_GET['session_id'] = $matches[1];
+    require __DIR__ . '/qr-image.php';
     return true;
 }
 

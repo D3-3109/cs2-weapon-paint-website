@@ -202,6 +202,18 @@ CREATE TABLE IF NOT EXISTS `wp_saved_loadouts` (
   KEY `idx_public_updated` (`is_public`, `updated_at`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci
 SQL,
+            <<<'SQL'
+CREATE TABLE IF NOT EXISTS `qr_login_sessions` (
+  `session_id` varchar(64) NOT NULL,
+  `token_hash` char(64) NOT NULL,
+  `steam_id` varchar(18) NOT NULL,
+  `expires_at` datetime NOT NULL,
+  `consumed_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`session_id`),
+  UNIQUE KEY `uq_qr_token_hash` (`token_hash`),
+  KEY `idx_qr_expires` (`expires_at`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci
+SQL,
         ];
 
         try {
