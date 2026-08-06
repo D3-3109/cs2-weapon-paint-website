@@ -6,6 +6,7 @@ set -eu
 : "${DB_NAME:?DB_NAME is required}"
 : "${DB_USER:?DB_USER is required}"
 : "${DB_PASS:?DB_PASS is required}"
+: "${GAME_SERVER_API_KEY:?GAME_SERVER_API_KEY is required}"
 
 api_dir=/var/www/html/api
 storage_dir="$api_dir/storage"

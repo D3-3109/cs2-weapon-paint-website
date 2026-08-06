@@ -18,7 +18,12 @@ RUN apt-get update \
     && a2enmod rewrite headers \
     && sed -ri 's!AllowOverride None!AllowOverride All!g' /etc/apache2/apache2.conf \
     && printf 'SetEnv WP_SKIP_HTTPS_REDIRECT 1\n' > /etc/apache2/conf-available/weapon-paints.conf \
+    && printf '%s\n' \
+        'CGIPassAuth On' \
+        'SetEnvIf Authorization "(.+)" HTTP_AUTHORIZATION=$1' \
+        > /etc/apache2/conf-available/weapon-paints-auth.conf \
     && a2enconf weapon-paints \
+    && a2enconf weapon-paints-auth \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /var/www/html
