@@ -19,7 +19,6 @@ RUN apt-get update \
     && sed -ri 's!AllowOverride None!AllowOverride All!g' /etc/apache2/apache2.conf \
     && printf 'SetEnv WP_SKIP_HTTPS_REDIRECT 1\n' > /etc/apache2/conf-available/weapon-paints.conf \
     && printf '%s\n' \
-        'CGIPassAuth On' \
         'SetEnvIf Authorization "(.+)" HTTP_AUTHORIZATION=$1' \
         > /etc/apache2/conf-available/weapon-paints-auth.conf \
     && a2enconf weapon-paints \
