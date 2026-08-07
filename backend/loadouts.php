@@ -28,12 +28,28 @@ if (in_array($action, $writeActions, true)) {
 }
 
 $caching = false;
+// Cache key inputs per read action, mirroring the exact $_POST/$_GET reads of
+// each handler below. 'both' = POST then GET; 'post' = POST only (candidates
+// handler ignores GET values, so a GET fallback here would key on input the
+// response never depends on and could serve the wrong cached body).
+$cacheInputs = [
+    'list'        => [],
+    'list_public' => ['limit' => 'both'],
+    'get'         => ['id' => 'both'],
+    'candidates'  => ['team' => 'post', 'scope' => 'post'],
+];
+$cacheDefaults = [
+    'candidates' => ['scope' => 'team'], // match handler default
+];
 if (in_array($action, $readActions, true)) {
-    $cacheKey = $action . '|' . md5(json_encode([
-        'id' => $_POST['id'] ?? $_GET['id'] ?? '',
-        'limit' => $_POST['limit'] ?? $_GET['limit'] ?? '',
-        'team' => $_POST['team'] ?? '',
-    ]));
+    $params = [];
+    foreach ($cacheInputs[$action] ?? [] as $k => $src) {
+        $default = $cacheDefaults[$action][$k] ?? '';
+        $params[$k] = $src === 'post'
+            ? ($_POST[$k] ?? $default)
+            : ($_POST[$k] ?? $_GET[$k] ?? $default);
+    }
+    $cacheKey = $action . '|' . md5(json_encode($params));
     if (wp_api_try_send_cache($steamid, $cacheKey)) {
         exit;
     }
