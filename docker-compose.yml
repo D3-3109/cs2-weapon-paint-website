@@ -24,7 +24,7 @@ services:
       weapon-paints:
         condition: service_healthy
     environment:
-      SITE_DOMAIN: ${SITE_DOMAIN:-skins.northstar.cool}
+      SITE_DOMAIN: ${SITE_DOMAIN:?SITE_DOMAIN is required (set it in .env)}
     ports:
       - "80:80"
       - "443:443"
