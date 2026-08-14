@@ -14,14 +14,14 @@ header('Cache-Control: no-store');
 $auth = (string) ($_SERVER['HTTP_AUTHORIZATION'] ?? $_SERVER['REDIRECT_HTTP_AUTHORIZATION'] ?? '');
 if (!preg_match('/^Bearer\s+(.+)$/i', $auth, $matches) || !defined('GAME_SERVER_API_KEY') || GAME_SERVER_API_KEY === '' || !hash_equals((string) GAME_SERVER_API_KEY, trim($matches[1]))) {
     http_response_code(401);
-    echo json_encode(['success' => false, 'qr_url' => null, 'redirect_url' => null, 'is_new' => false]);
+    echo json_encode(['success' => false, 'qr_url' => null]);
     exit;
 }
 
 $steamid = wp_parse_steamid64(isset($_GET['qr']) ? (string) $_GET['qr'] : null);
 if ($steamid === null) {
     http_response_code(400);
-    echo json_encode(['success' => false, 'qr_url' => null, 'redirect_url' => null, 'is_new' => false]);
+    echo json_encode(['success' => false, 'qr_url' => null]);
     exit;
 }
 
@@ -32,7 +32,7 @@ $imageDir = __DIR__ . '/storage/images_qr';
 $imageFile = $imageDir . '/' . $sessionId . '.png';
 if (!is_dir($imageDir) && !mkdir($imageDir, 0775, true) && !is_dir($imageDir)) {
     http_response_code(500);
-    echo json_encode(['success' => false, 'qr_url' => null, 'redirect_url' => null, 'is_new' => false]);
+    echo json_encode(['success' => false, 'qr_url' => null]);
     exit;
 }
 
@@ -56,9 +56,9 @@ try {
         }
     }
     http_response_code(503);
-    echo json_encode(['success' => false, 'qr_url' => null, 'redirect_url' => null, 'is_new' => false]);
+    echo json_encode(['success' => false, 'qr_url' => null]);
     exit;
 }
 
 error_reporting($errorReporting);
-echo json_encode(['success' => true, 'qr_url' => rtrim(DOMAIN_NAME, '/') . '/images_qr/' . $sessionId . '.png', 'redirect_url' => null, 'is_new' => true]);
+echo json_encode(['success' => true, 'qr_url' => rtrim(DOMAIN_NAME, '/') . '/images_qr/' . $sessionId . '.png']);
