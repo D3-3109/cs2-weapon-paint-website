@@ -194,7 +194,7 @@ const FALLBACK_ENDPOINTS = {
   collectibles: 'collectibles.json',
 }
 const BEMYKEL_BASE = 'https://raw.githubusercontent.com/ByMykel/CSGO-API/main/public/api/en/'
-const fallbackMaps = new Map() // endpoint -> Promise<Map<key, url>>
+const fallbackMaps = new Map() // endpoint -> Promise<Map<key, {url, name}>>
 
 function normName(s) {
   return String(s)
@@ -216,9 +216,10 @@ async function lookupFallback(task) {
       for (const it of arr) {
         const url = typeof it.image === 'string' && /^https?:\/\//i.test(it.image) ? it.image : null
         if (!url) continue
-        if (it.id != null) map.set('id:' + String(it.id).replace(/^.*?-/, ''), url)
-        if (it.def_index != null) map.set('id:' + String(it.def_index), url)
-        if (it.name) map.set('name:' + normName(it.name), url)
+        const item = { url, name: it.name || '' }
+        if (it.id != null) map.set('id:' + String(it.id).replace(/^.*?-/, ''), item)
+        if (it.def_index != null) map.set('id:' + String(it.def_index), item)
+        if (it.name) map.set('name:' + normName(it.name), item)
       }
       return map
     })().catch((err) => {
@@ -229,19 +230,34 @@ async function lookupFallback(task) {
   }
   const map = await mapP
   const e = task.entry
-  return (
+  const hit =
     (e.id != null && map.get('id:' + String(e.id))) ||
     (e.name ? map.get('name:' + normName(e.name)) : null) ||
     (e.paint_name ? map.get('name:' + normName(e.paint_name)) : null) ||
     null
-  )
+  if (!hit) return null
+  // Confidence check: id is the precise key, but numbering could diverge
+  // between datasets - when both sides have names, verify they agree.
+  const ownName = e.name || e.paint_name || ''
+  if (ownName && hit.name) {
+    const agree = normName(ownName) === normName(hit.name)
+    log(
+      `fallback ${path.basename(task.file)}#${task.idx} "${ownName}" -> ByMykel "${hit.name}" ` +
+        (agree ? '[id-match, name confirmed]' : `[NAME MISMATCH - verify pairing!] ${hit.url.slice(0, 80)}`),
+    )
+  } else {
+    log(
+      `fallback ${path.basename(task.file)}#${task.idx} ` +
+        `${ownName ? `"${ownName}"` : task.local} -> ByMykel ${hit.name ? `"${hit.name}" ` : ''}[name-match only]`,
+    )
+  }
+  return hit
 }
 
 async function mirrorAndRewrite(task) {
   const { entry, remote, local } = task
   const absOut = path.join(imgRoot, local.replace('/img/', ''))
   const exists = fs.existsSync(absOut) && fs.statSync(absOut).size > 0
-
   if (checkOnly) {
     // Entries still pointing at a remote URL were intentionally not mirrored
     // (e.g. upstream 404) - skip them instead of reporting missing files.
@@ -250,7 +266,6 @@ async function mirrorAndRewrite(task) {
     const ok = fs.existsSync(abs) && fs.statSync(abs).size > 0
     return ok ? 'ok' : 'missing'
   }
-
   if (!exists || force) {
     let buf
     let sourceUrl = remote
@@ -258,10 +273,10 @@ async function mirrorAndRewrite(task) {
       buf = await downloadOnce(remote)
     } catch (err) {
       if (err.code !== 'UPSTREAM_MISSING') throw err
-      const fallbackUrl = await lookupFallback(task)
-      if (!fallbackUrl) throw err
-      buf = await downloadOnce(fallbackUrl)
-      sourceUrl = fallbackUrl
+      const hit = await lookupFallback(task)
+      if (!hit) throw err
+      buf = await downloadOnce(hit.url)
+      sourceUrl = hit.url
       task.fellBack = true
     }
     const webp = await sharp(buf).webp({ quality: 82, alphaQuality: 90 }).toBuffer()
