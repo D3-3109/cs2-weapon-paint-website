@@ -178,6 +178,65 @@ function collectTasks() {
   return tasks
 }
 
+/**
+ * Secondary source: when the primary upstream 404s (Nereziel repo lacks some
+ * newer collectibles/music kits), fall back to ByMykel/CSGO-API matched by
+ * entry id (same numbering) or normalized name. ByMykel images point at
+ * Steam CDN directly, so they work wherever the primary source does.
+ */
+const FALLBACK_ENDPOINTS = {
+  skins: 'skins.json',
+  gloves: 'gloves.json',
+  stickers: 'stickers.json',
+  'music-kits': 'music_kits.json',
+  music: 'music_kits.json',
+  agents: 'agents.json',
+  collectibles: 'collectibles.json',
+}
+const BEMYKEL_BASE = 'https://raw.githubusercontent.com/ByMykel/CSGO-API/main/public/api/en/'
+const fallbackMaps = new Map() // endpoint -> Promise<Map<key, url>>
+
+function normName(s) {
+  return String(s)
+    .toLowerCase()
+    .replace(/^(music kit|sticker|charm|collectible|patch|pin)\s*\|\s*/i, '')
+    .replace(/[^a-z0-9]+/g, '')
+}
+
+async function lookupFallback(task) {
+  const endpoint = FALLBACK_ENDPOINTS[task.category]
+  if (!endpoint) return null
+  let mapP = fallbackMaps.get(endpoint)
+  if (!mapP) {
+    mapP = (async () => {
+      const res = await fetch(BEMYKEL_BASE + endpoint)
+      if (!res.ok) throw new Error(`fallback API HTTP ${res.status}`)
+      const arr = await res.json()
+      const map = new Map()
+      for (const it of arr) {
+        const url = typeof it.image === 'string' && /^https?:\/\//i.test(it.image) ? it.image : null
+        if (!url) continue
+        if (it.id != null) map.set('id:' + String(it.id).replace(/^.*?-/, ''), url)
+        if (it.def_index != null) map.set('id:' + String(it.def_index), url)
+        if (it.name) map.set('name:' + normName(it.name), url)
+      }
+      return map
+    })().catch((err) => {
+      fallbackMaps.delete(endpoint)
+      throw err
+    })
+    fallbackMaps.set(endpoint, mapP)
+  }
+  const map = await mapP
+  const e = task.entry
+  return (
+    (e.id != null && map.get('id:' + String(e.id))) ||
+    (e.name ? map.get('name:' + normName(e.name)) : null) ||
+    (e.paint_name ? map.get('name:' + normName(e.paint_name)) : null) ||
+    null
+  )
+}
+
 async function mirrorAndRewrite(task) {
   const { entry, remote, local } = task
   const absOut = path.join(imgRoot, local.replace('/img/', ''))
@@ -193,15 +252,30 @@ async function mirrorAndRewrite(task) {
   }
 
   if (!exists || force) {
-    const buf = await downloadOnce(remote)
+    let buf
+    let sourceUrl = remote
+    try {
+      buf = await downloadOnce(remote)
+    } catch (err) {
+      if (err.code !== 'UPSTREAM_MISSING') throw err
+      const fallbackUrl = await lookupFallback(task)
+      if (!fallbackUrl) throw err
+      buf = await downloadOnce(fallbackUrl)
+      sourceUrl = fallbackUrl
+      task.fellBack = true
+    }
     const webp = await sharp(buf).webp({ quality: 82, alphaQuality: 90 }).toBuffer()
     await fse.ensureDir(path.dirname(absOut))
     await fs.promises.writeFile(absOut, webp)
+    if (task.fellBack && entry.image_remote !== sourceUrl) {
+      entry.image_remote = sourceUrl // provenance: URL this file actually came from
+      task.dirty = true // restore-flow tasks (image already local) need this persisted
+    }
   }
 
   // Mark rewrite on this task; applied to disk after workers finish.
   if (entry.image !== local) {
-    entry.image_remote = remote
+    entry.image_remote = entry.image_remote ?? remote
     entry.image = local
     task.dirty = true
   } else {
@@ -270,9 +344,13 @@ async function main() {
       let changed = 0
       for (const [idx, t] of byIdx) {
         const entry = entries[idx]
-        if (!entry || !/^https?:\/\//i.test(entry.image)) continue
-        entry.image_remote = entry.image
-        entry.image = t.local
+        if (!entry) continue
+        // task.entry holds the authoritative post-mirror values (local path +
+        // actual source URL incl. ByMykel fallback). Copy, don't recompute.
+        if (entry.image !== t.entry.image) entry.image = t.entry.image
+        if (t.entry.image_remote != null && entry.image_remote !== t.entry.image_remote) {
+          entry.image_remote = t.entry.image_remote
+        }
         changed += 1
       }
       if (changed > 0) {

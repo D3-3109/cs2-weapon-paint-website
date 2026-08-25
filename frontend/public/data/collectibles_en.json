@@ -2840,17 +2840,20 @@
     {
         "id": "5177",
         "name": "Golden Map Coin",
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5177.png"
+        "image": "/img/collectibles/5177.webp",
+        "image_remote": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai2l-lQ8ndwMWvJjSa5EZh-4zx5GbgThH1m5iuqHoNvvOsO6c6I_LBCD6RkLoi5uM9HXnmwk8j5WSHz9atcH2XaAYpD4wwG7B2mi3yFg"
     },
     {
         "id": "5178",
         "name": "Rooftop Map Coin",
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5178.png"
+        "image": "/img/collectibles/5178.webp",
+        "image_remote": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai2l-lQ8ndwMWvJjSa5EZh-4zx5Gb1ThL3ipnwsyMMuvCtOqBpdqCSXWKTlO0gteI8Si3hlkR35D_RwouseS2RPVIiC8NuBbld9P92N7k"
     },
     {
         "id": "5179",
         "name": "Palacio Map Coin",
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5179.png"
+        "image": "/img/collectibles/5179.webp",
+        "image_remote": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai2l-lQ8ndwMWvJjSa5EZh-4zx5Gb3QBHwnZ_vs3MDv_H3PPxscKTEXTSRk-t05udoSyy2kE1-422HyN-oeC6SOFclDMNuBbldgODXGpM"
     },
     {
         "id": "5180",
@@ -2896,7 +2899,8 @@
     {
         "id": "5215",
         "name": "Budapest 2025 Souvenir Package",
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5215.png"
+        "image": "/img/collectibles/5215.webp",
+        "image_remote": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai2l-lQ8ndwMWvJjSE8Vdn-Ibw7lz1fg34nZ3l8B0Jv6P3V7RsM-OsDW-R0-lz_rY_GC23lERy5G-Dz9auJH3EOwJxXJMmQuQKtRPtmtDjYrjktlSLidlbjXKpoEDlkMU"
     },
     {
         "id": "5226",
@@ -3177,27 +3181,32 @@
     {
         "id": "5276",
         "name": "Warden Map Coin",
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5276.png"
+        "image": "/img/collectibles/5276.webp",
+        "image_remote": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai2l-lQ8ndwMWvJjSa5EZh-4zx5GbwQA_1m5iurSEI6qL2MfM8IaSRVjDAx7h16LQ9HHuww0R15juBz9f4cXjBPQcoDowwG7BXYOBukg"
     },
     {
         "id": "5277",
         "name": "Stronghold Map Coin",
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5277.png"
+        "image": "/img/collectibles/5277.webp",
+        "image_remote": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai2l-lQ8ndwMWvJjSa5EZh-4zx5Gb0VQ_-kJHo8i5foaP4PvZpc6mSDzXAxOwk4LFqFny3lhsisW6Dy9ihcXqeZgAhXJZwQu8U8k7vlxgpap8"
     },
     {
         "id": "5278",
         "name": "Alpine Map Coin",
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5278.png"
+        "image": "/img/collectibles/5278.webp",
+        "image_remote": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai2l-lQ8ndwMWvJjSa5EZh-4zx5GbmTQ34kJOuqncN6qv_baE7c6KRXjHCkuxz6eJoGy2ywEp_sWnTntaueHqVagUiCYwwG7CXk4VV7w"
     },
     {
         "id": "5279",
         "name": "Poseidon Map Coin",
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5279.png"
+        "image": "/img/collectibles/5279.webp",
+        "image_remote": "https://cdn.steamstatic.com/apps/730/icons/econ/status_icons/maptoken_poseidon.9026f2cdee34ef65febaa2a9fa9eab49793af60a.png"
     },
     {
         "id": "5280",
         "name": "Sanctum Map Coin",
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5280.png"
+        "image": "/img/collectibles/5280.webp",
+        "image_remote": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai2l-lQ8ndwMWvJjSa5EZh-4zx5Gb0QBPyioPtsyEL7fT9O_BsI6fFDWXHwL0k4rVvGSrgwxkm6m-Dntz8dC-fPAAgCJRuBbldkduEXzU"
     },
     {
         "id": "6001",
