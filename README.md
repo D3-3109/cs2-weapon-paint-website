@@ -178,7 +178,18 @@ Weapon definitions, stickers, keychains, and many skin images come from [Nerezie
 Helper scripts (from repo root):
 
 - `pnpm plugin:update` - fetch/sync plugin data
+- `pnpm images:mirror` - download all remote catalog images (skins, stickers,
+  keychains, music kits, agents, collectibles) into `frontend/public/img/` as
+  WebP and rewrite `frontend/public/data/*_en.json` to point at the local
+  copies (`image_remote` keeps the original URL as fallback). Required once
+  after a fresh clone and after every `plugin:update`; Docker builds run it
+  automatically (set `WP_SKIP_IMAGE_MIRROR=1` to skip).
+- `pnpm images:check` - verify every referenced image exists locally
 - `pnpm textures:manifest` - 3D texture availability manifest
+
+Mirrored images are git-ignored: they are re-fetched at build/release time so
+the site serves everything from its own origin (no GitHub raw / Steam CDN at
+runtime).
 
 ## Legal
 

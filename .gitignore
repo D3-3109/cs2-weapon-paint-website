@@ -36,3 +36,6 @@ Thumbs.db
 *.swp
 .vscode/
 .cursor/
+
+# --- IMAGE MIRROR (build-time download, see scripts/mirror-images.mjs) ---
+frontend/public/img/

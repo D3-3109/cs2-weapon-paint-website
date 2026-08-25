@@ -1,11 +1,15 @@
 import { useI18n } from '../i18n/I18nProvider'
+import { mirroredSkinPath, withRemoteFallback } from '../lib/mirroredSkin'
 import '../styles/LoadingScreen.css'
 
 /** Falling loot bits - same curated skins as login showcase + cash chips */
 const FALLING = [
   {
     kind: 'skin',
-    src: 'https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_ak47-1171.png',
+    weapon: 'weapon_ak47',
+    paint: '1171',
+    remote:
+      'https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_ak47-1171.png',
     x: 8,
     delay: 0,
     dur: 7.2,
@@ -23,7 +27,10 @@ const FALLING = [
   },
   {
     kind: 'skin',
-    src: 'https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_awp-279.png',
+    weapon: 'weapon_awp',
+    paint: '279',
+    remote:
+      'https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_awp-279.png',
     x: 36,
     delay: 0.4,
     dur: 8.1,
@@ -41,7 +48,10 @@ const FALLING = [
   },
   {
     kind: 'skin',
-    src: 'https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_knife_karambit-417.png',
+    weapon: 'weapon_knife_karambit',
+    paint: '417',
+    remote:
+      'https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_knife_karambit-417.png',
     x: 58,
     delay: 1.6,
     dur: 7.6,
@@ -59,7 +69,10 @@ const FALLING = [
   },
   {
     kind: 'skin',
-    src: 'https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_deagle-962.png',
+    weapon: 'weapon_deagle',
+    paint: '962',
+    remote:
+      'https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_deagle-962.png',
     x: 78,
     delay: 2.8,
     dur: 7.0,
@@ -77,7 +90,10 @@ const FALLING = [
   },
   {
     kind: 'skin',
-    src: 'https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_m4a1_silencer-984.png',
+    weapon: 'weapon_m4a1_silencer',
+    paint: '984',
+    remote:
+      'https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_m4a1_silencer-984.png',
     x: 88,
     delay: 1.9,
     dur: 8.4,
@@ -95,7 +111,10 @@ const FALLING = [
   },
   {
     kind: 'skin',
-    src: 'https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_glock-38.png',
+    weapon: 'weapon_glock',
+    paint: '38',
+    remote:
+      'https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_glock-38.png',
     x: 28,
     delay: 3.6,
     dur: 7.8,
@@ -137,7 +156,12 @@ export default function LoadingScreen() {
             }}
           >
             {item.kind === 'skin' ? (
-              <img src={item.src} alt="" draggable={false} />
+              <img
+                src={mirroredSkinPath(item.weapon, item.paint) ?? item.remote}
+                onError={withRemoteFallback(item.remote)}
+                alt=""
+                draggable={false}
+              />
             ) : (
               <em>{item.label}</em>
             )}

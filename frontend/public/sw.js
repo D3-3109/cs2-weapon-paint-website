@@ -1,5 +1,5 @@
 /* Weapon Paints PWA service worker */
-const CACHE_VERSION = 'wp-pwa-v2'
+const CACHE_VERSION = 'wp-pwa-v3'
 const PRECACHE = [
   '/',
   '/index.html',

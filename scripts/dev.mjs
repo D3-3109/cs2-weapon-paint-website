@@ -25,6 +25,22 @@ function fail(message) {
   process.exit(1)
 }
 
+function countMirroredImages(dir) {
+  try {
+    return fs
+      .readdirSync(dir, { withFileTypes: true })
+      .reduce(
+        (n, d) =>
+          d.isDirectory()
+            ? n + fs.readdirSync(path.join(dir, d.name)).length
+            : n + 1,
+        0,
+      )
+  } catch {
+    return 0
+  }
+}
+
 function runCheck(command) {
   return new Promise((resolve) => {
     const child = spawn(command, {
@@ -217,6 +233,15 @@ async function main() {
 
   const { bumpCacheVersion } = await import('./bump-cache-version.mjs')
   bumpCacheVersion({ reason: 'dev restart' })
+
+  // Fresh clones lack frontend/public/img until the mirror ran once.
+  const mirrored = countMirroredImages(path.join(root, 'frontend', 'public', 'img'))
+  if (mirrored < 1000) {
+    log(
+      'dev',
+      `UWAGA: lokalny mirror obrazkow pusty/niepelny (${mirrored} plikow). Uruchom: pnpm images:mirror`,
+    )
+  }
 
   const phpArgs = [
     ...runtime.iniArgs,

@@ -39,4 +39,11 @@
   <FilesMatch "\.(webmanifest)$">
     Header set Cache-Control "no-cache"
   </FilesMatch>
+
+# Mirrored images are content-addressed by upstream id - cache hard.
+<IfModule mod_headers.c>
+  <FilesMatch "\.(webp|png|jpe?g|svg|hdr)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+</IfModule>
 </IfModule>

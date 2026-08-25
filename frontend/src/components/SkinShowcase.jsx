@@ -1,50 +1,67 @@
 import { useEffect, useState } from 'react'
 import { useI18n } from '../i18n/I18nProvider'
+import { mirroredSkinPath } from '../lib/mirroredSkin'
 import '../styles/SkinShowcase.css'
 
-/** Curated iconic skins - IDs matched to public/data/skins_en.json */
+/** Curated iconic skins - weapon/paint matched to public/data/skins_en.json */
 const FEATURED = [
   {
     paint_name: 'AK-47 | Inheritance',
-    image:
+    weapon: 'weapon_ak47',
+    paint: '1171',
+    remote:
       'https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_ak47-1171.png',
   },
   {
     paint_name: 'AWP | Asiimov',
-    image:
+    weapon: 'weapon_awp',
+    paint: '279',
+    remote:
       'https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_awp-279.png',
   },
   {
     paint_name: 'M4A1-S | Printstream',
-    image:
+    weapon: 'weapon_m4a1_silencer',
+    paint: '984',
+    remote:
       'https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_m4a1_silencer-984.png',
   },
   {
     paint_name: 'Karambit | Doppler',
-    image:
+    weapon: 'weapon_knife_karambit',
+    paint: '417',
+    remote:
       'https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_knife_karambit-417.png',
   },
   {
     paint_name: 'Desert Eagle | Printstream',
-    image:
+    weapon: 'weapon_deagle',
+    paint: '962',
+    remote:
       'https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_deagle-962.png',
   },
   {
     paint_name: 'AK-47 | Asiimov',
-    image:
+    weapon: 'weapon_ak47',
+    paint: '801',
+    remote:
       'https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_ak47-801.png',
   },
   {
     paint_name: 'USP-S | Kill Confirmed',
-    image:
+    weapon: 'weapon_usp_silencer',
+    paint: '504',
+    remote:
       'https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_usp_silencer-504.png',
   },
   {
     paint_name: 'Glock-18 | Fade',
-    image:
+    weapon: 'weapon_glock',
+    paint: '38',
+    remote:
       'https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/weapon_glock-38.png',
   },
-]
+].map((skin) => ({ ...skin, local: mirroredSkinPath(skin.weapon, skin.paint) ?? skin.remote }))
 
 const INTERVAL_MS = 3200
 
@@ -56,14 +73,24 @@ export default function SkinShowcase() {
   useEffect(() => {
     FEATURED.forEach((skin, i) => {
       const img = new Image()
-      img.onload = () => {
+      const markReady = () => {
         setReady((prev) => {
+          if (prev.has(i)) return prev
           const next = new Set(prev)
           next.add(i)
           return next
         })
       }
-      img.src = skin.image
+      // Local mirror first; on failure try the original remote once.
+      img.onload = markReady
+      img.onerror = () => {
+        if (img.src !== skin.remote) {
+          img.src = skin.remote
+        } else {
+          markReady()
+        }
+      }
+      img.src = skin.local
     })
   }, [])
 
@@ -90,13 +117,13 @@ export default function SkinShowcase() {
           const active = i === index && ready.has(i)
           return (
             <div
-              key={skin.image}
+              key={skin.local}
               className={active ? 'skin-showcase__slide is-active' : 'skin-showcase__slide'}
               aria-hidden={!active}
             >
               <img
                 className="skin-showcase__img"
-                src={skin.image}
+                src={skin.local}
                 alt=""
                 draggable={false}
                 loading={i === 0 ? 'eager' : 'lazy'}

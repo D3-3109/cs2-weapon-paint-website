@@ -8,6 +8,10 @@ RUN npm ci
 RUN npm --prefix frontend install
 
 COPY . .
+# Mirror remote skin/sticker images locally (China-friendly, self-contained dist).
+# Set WP_SKIP_IMAGE_MIRROR=1 to build without outbound network.
+ARG WP_SKIP_IMAGE_MIRROR=0
+RUN if [ "$WP_SKIP_IMAGE_MIRROR" != "1" ]; then node scripts/mirror-images.mjs; fi
 RUN cd frontend && npm exec -- vite build --emptyOutDir
 RUN node copy-backend.js
 

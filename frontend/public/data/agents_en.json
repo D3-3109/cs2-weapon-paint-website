@@ -13,380 +13,443 @@
     },
     {
         "team": 2,
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4613.png",
+        "image": "/img/agents/bloody-darryl-the-strapped-the-professionals.webp",
         "model": "tm_professional/tm_professional_varf5",
-        "agent_name": "Bloody Darryl The Strapped | The Professionals"
+        "agent_name": "Bloody Darryl The Strapped | The Professionals",
+        "image_remote": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4613.png"
     },
     {
         "team": 3,
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4619.png",
+        "image": "/img/agents/blueberries-buckshot-nswc-seal.webp",
         "model": "ctm_st6/ctm_st6_variantj",
-        "agent_name": "'Blueberries' Buckshot | NSWC SEAL"
+        "agent_name": "'Blueberries' Buckshot | NSWC SEAL",
+        "image_remote": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4619.png"
     },
     {
         "team": 3,
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4680.png",
+        "image": "/img/agents/two-times-mccoy-tacp-cavalry.webp",
         "model": "ctm_st6/ctm_st6_variantl",
-        "agent_name": "'Two Times' McCoy | TACP Cavalry"
+        "agent_name": "'Two Times' McCoy | TACP Cavalry",
+        "image_remote": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4680.png"
     },
     {
         "team": 3,
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4711.png",
+        "image": "/img/agents/cmdr-mae-dead-cold-jamison-swat.webp",
         "model": "ctm_swat/ctm_swat_variante",
-        "agent_name": "Cmdr. Mae 'Dead Cold' Jamison | SWAT"
+        "agent_name": "Cmdr. Mae 'Dead Cold' Jamison | SWAT",
+        "image_remote": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4711.png"
     },
     {
         "team": 3,
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4712.png",
+        "image": "/img/agents/1st-lieutenant-farlow-swat.webp",
         "model": "ctm_swat/ctm_swat_variantf",
-        "agent_name": "1st Lieutenant Farlow | SWAT"
+        "agent_name": "1st Lieutenant Farlow | SWAT",
+        "image_remote": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4712.png"
     },
     {
         "team": 3,
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4713.png",
+        "image": "/img/agents/john-van-healen-kask-swat.webp",
         "model": "ctm_swat/ctm_swat_variantg",
-        "agent_name": "John 'Van Healen' Kask | SWAT"
+        "agent_name": "John 'Van Healen' Kask | SWAT",
+        "image_remote": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4713.png"
     },
     {
         "team": 3,
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4714.png",
+        "image": "/img/agents/bio-haz-specialist-swat.webp",
         "model": "ctm_swat/ctm_swat_varianth",
-        "agent_name": "Bio-Haz Specialist | SWAT"
+        "agent_name": "Bio-Haz Specialist | SWAT",
+        "image_remote": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4714.png"
     },
     {
         "team": 3,
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4715.png",
+        "image": "/img/agents/sergeant-bombson-swat.webp",
         "model": "ctm_swat/ctm_swat_varianti",
-        "agent_name": "Sergeant Bombson | SWAT"
+        "agent_name": "Sergeant Bombson | SWAT",
+        "image_remote": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4715.png"
     },
     {
         "team": 3,
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4716.png",
+        "image": "/img/agents/chem-haz-specialist-swat.webp",
         "model": "ctm_swat/ctm_swat_variantj",
-        "agent_name": "Chem-Haz Specialist | SWAT"
+        "agent_name": "Chem-Haz Specialist | SWAT",
+        "image_remote": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4716.png"
     },
     {
         "team": 2,
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4718.png",
+        "image": "/img/agents/rezan-the-redshirt-sabre.webp",
         "model": "tm_balkan/tm_balkan_variantk",
-        "agent_name": "Rezan the Redshirt | Sabre"
+        "agent_name": "Rezan the Redshirt | Sabre",
+        "image_remote": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4718.png"
     },
     {
         "team": 2,
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4726.png",
+        "image": "/img/agents/sir-bloody-miami-darryl-the-professionals.webp",
         "model": "tm_professional/tm_professional_varf",
-        "agent_name": "Sir Bloody Miami Darryl | The Professionals"
+        "agent_name": "Sir Bloody Miami Darryl | The Professionals",
+        "image_remote": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4726.png"
     },
     {
         "team": 2,
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4727.png",
+        "image": "/img/agents/safecracker-voltzmann-the-professionals.webp",
         "model": "tm_professional/tm_professional_varg",
-        "agent_name": "Safecracker Voltzmann | The Professionals"
+        "agent_name": "Safecracker Voltzmann | The Professionals",
+        "image_remote": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4727.png"
     },
     {
         "team": 2,
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4728.png",
+        "image": "/img/agents/little-kev-the-professionals.webp",
         "model": "tm_professional/tm_professional_varh",
-        "agent_name": "Little Kev | The Professionals"
+        "agent_name": "Little Kev | The Professionals",
+        "image_remote": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4728.png"
     },
     {
         "team": 2,
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4730.png",
+        "image": "/img/agents/getaway-sally-the-professionals.webp",
         "model": "tm_professional/tm_professional_varj",
-        "agent_name": "Getaway Sally | The Professionals"
+        "agent_name": "Getaway Sally | The Professionals",
+        "image_remote": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4730.png"
     },
     {
         "team": 2,
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4732.png",
+        "image": "/img/agents/number-k-the-professionals.webp",
         "model": "tm_professional/tm_professional_vari",
-        "agent_name": "Number K | The Professionals"
+        "agent_name": "Number K | The Professionals",
+        "image_remote": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4732.png"
     },
     {
         "team": 2,
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4733.png",
+        "image": "/img/agents/sir-bloody-silent-darryl-the-professionals.webp",
         "model": "tm_professional/tm_professional_varf1",
-        "agent_name": "Sir Bloody Silent Darryl | The Professionals"
+        "agent_name": "Sir Bloody Silent Darryl | The Professionals",
+        "image_remote": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4733.png"
     },
     {
         "team": 2,
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4734.png",
+        "image": "/img/agents/sir-bloody-skullhead-darryl-the-professionals.webp",
         "model": "tm_professional/tm_professional_varf2",
-        "agent_name": "Sir Bloody Skullhead Darryl | The Professionals"
+        "agent_name": "Sir Bloody Skullhead Darryl | The Professionals",
+        "image_remote": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4734.png"
     },
     {
         "team": 2,
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4735.png",
+        "image": "/img/agents/sir-bloody-darryl-royale-the-professionals.webp",
         "model": "tm_professional/tm_professional_varf3",
-        "agent_name": "Sir Bloody Darryl Royale | The Professionals"
+        "agent_name": "Sir Bloody Darryl Royale | The Professionals",
+        "image_remote": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4735.png"
     },
     {
         "team": 2,
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4736.png",
+        "image": "/img/agents/sir-bloody-loudmouth-darryl-the-professionals.webp",
         "model": "tm_professional/tm_professional_varf4",
-        "agent_name": "Sir Bloody Loudmouth Darryl | The Professionals"
+        "agent_name": "Sir Bloody Loudmouth Darryl | The Professionals",
+        "image_remote": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4736.png"
     },
     {
         "team": 3,
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4749.png",
+        "image": "/img/agents/sous-lieutenant-medic-gendarmerie-nationale.webp",
         "model": "ctm_gendarmerie/ctm_gendarmerie_varianta",
-        "agent_name": "Sous-Lieutenant Medic | Gendarmerie Nationale"
+        "agent_name": "Sous-Lieutenant Medic | Gendarmerie Nationale",
+        "image_remote": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4749.png"
     },
     {
         "team": 3,
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4750.png",
+        "image": "/img/agents/chem-haz-capitaine-gendarmerie-nationale.webp",
         "model": "ctm_gendarmerie/ctm_gendarmerie_variantb",
-        "agent_name": "Chem-Haz Capitaine | Gendarmerie Nationale"
+        "agent_name": "Chem-Haz Capitaine | Gendarmerie Nationale",
+        "image_remote": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4750.png"
     },
     {
         "team": 3,
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4751.png",
+        "image": "/img/agents/chef-d-escadron-rouchard-gendarmerie-nationale.webp",
         "model": "ctm_gendarmerie/ctm_gendarmerie_variantc",
-        "agent_name": "Chef d'Escadron Rouchard | Gendarmerie Nationale"
+        "agent_name": "Chef d'Escadron Rouchard | Gendarmerie Nationale",
+        "image_remote": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4751.png"
     },
     {
         "team": 3,
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4752.png",
+        "image": "/img/agents/aspirant-gendarmerie-nationale.webp",
         "model": "ctm_gendarmerie/ctm_gendarmerie_variantd",
-        "agent_name": "Aspirant | Gendarmerie Nationale"
+        "agent_name": "Aspirant | Gendarmerie Nationale",
+        "image_remote": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4752.png"
     },
     {
         "team": 3,
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4753.png",
+        "image": "/img/agents/officer-jacques-beltram-gendarmerie-nationale.webp",
         "model": "ctm_gendarmerie/ctm_gendarmerie_variante",
-        "agent_name": "Officer Jacques Beltram | Gendarmerie Nationale"
+        "agent_name": "Officer Jacques Beltram | Gendarmerie Nationale",
+        "image_remote": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4753.png"
     },
     {
         "team": 3,
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4756.png",
+        "image": "/img/agents/lieutenant-tree-hugger-farlow-swat.webp",
         "model": "ctm_swat/ctm_swat_variantk",
-        "agent_name": "Lieutenant 'Tree Hugger' Farlow | SWAT"
+        "agent_name": "Lieutenant 'Tree Hugger' Farlow | SWAT",
+        "image_remote": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4756.png"
     },
     {
         "team": 3,
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4757.png",
+        "image": "/img/agents/cmdr-davida-goggles-fernandez-seal-frogman.webp",
         "model": "ctm_diver/ctm_diver_varianta",
-        "agent_name": "Cmdr. Davida 'Goggles' Fernandez | SEAL Frogman"
+        "agent_name": "Cmdr. Davida 'Goggles' Fernandez | SEAL Frogman",
+        "image_remote": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4757.png"
     },
     {
         "team": 3,
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4771.png",
+        "image": "/img/agents/cmdr-frank-wet-sox-baroud-seal-frogman.webp",
         "model": "ctm_diver/ctm_diver_variantb",
-        "agent_name": "Cmdr. Frank 'Wet Sox' Baroud | SEAL Frogman"
+        "agent_name": "Cmdr. Frank 'Wet Sox' Baroud | SEAL Frogman",
+        "image_remote": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4771.png"
     },
     {
         "team": 3,
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4772.png",
+        "image": "/img/agents/lieutenant-rex-krikey-seal-frogman.webp",
         "model": "ctm_diver/ctm_diver_variantc",
-        "agent_name": "Lieutenant Rex Krikey | SEAL Frogman"
+        "agent_name": "Lieutenant Rex Krikey | SEAL Frogman",
+        "image_remote": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4772.png"
     },
     {
         "team": 2,
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4773.png",
+        "image": "/img/agents/elite-trapper-solman-guerrilla-warfare.webp",
         "model": "tm_jungle_raider/tm_jungle_raider_varianta",
-        "agent_name": "Elite Trapper Solman | Guerrilla Warfare"
+        "agent_name": "Elite Trapper Solman | Guerrilla Warfare",
+        "image_remote": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4773.png"
     },
     {
         "team": 2,
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4774.png",
+        "image": "/img/agents/crasswater-the-forgotten-guerrilla-warfare.webp",
         "model": "tm_jungle_raider/tm_jungle_raider_variantb",
-        "agent_name": "Crasswater The Forgotten | Guerrilla Warfare"
+        "agent_name": "Crasswater The Forgotten | Guerrilla Warfare",
+        "image_remote": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4774.png"
     },
     {
         "team": 2,
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4775.png",
+        "image": "/img/agents/arno-the-overgrown-guerrilla-warfare.webp",
         "model": "tm_jungle_raider/tm_jungle_raider_variantc",
-        "agent_name": "Arno The Overgrown | Guerrilla Warfare"
+        "agent_name": "Arno The Overgrown | Guerrilla Warfare",
+        "image_remote": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4775.png"
     },
     {
         "team": 2,
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4776.png",
+        "image": "/img/agents/col-mangos-dabisi-guerrilla-warfare.webp",
         "model": "tm_jungle_raider/tm_jungle_raider_variantd",
-        "agent_name": "Col. Mangos Dabisi | Guerrilla Warfare"
+        "agent_name": "Col. Mangos Dabisi | Guerrilla Warfare",
+        "image_remote": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4776.png"
     },
     {
         "team": 2,
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4777.png",
+        "image": "/img/agents/vypa-sista-of-the-revolution-guerrilla-warfare.webp",
         "model": "tm_jungle_raider/tm_jungle_raider_variante",
-        "agent_name": "Vypa Sista of the Revolution | Guerrilla Warfare"
+        "agent_name": "Vypa Sista of the Revolution | Guerrilla Warfare",
+        "image_remote": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4777.png"
     },
     {
         "team": 2,
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4778.png",
+        "image": "/img/agents/trapper-aggressor-guerrilla-warfare.webp",
         "model": "tm_jungle_raider/tm_jungle_raider_variantf",
-        "agent_name": "Trapper Aggressor | Guerrilla Warfare"
+        "agent_name": "Trapper Aggressor | Guerrilla Warfare",
+        "image_remote": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4778.png"
     },
     {
         "team": 2,
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4780.png",
+        "image": "/img/agents/medium-rare-crasswater-guerrilla-warfare.webp",
         "model": "tm_jungle_raider/tm_jungle_raider_variantb2",
-        "agent_name": "'Medium Rare' Crasswater | Guerrilla Warfare"
+        "agent_name": "'Medium Rare' Crasswater | Guerrilla Warfare",
+        "image_remote": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4780.png"
     },
     {
         "team": 2,
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4781.png",
+        "image": "/img/agents/trapper-guerrilla-warfare.webp",
         "model": "tm_jungle_raider/tm_jungle_raider_variantf2",
-        "agent_name": "Trapper | Guerrilla Warfare"
+        "agent_name": "Trapper | Guerrilla Warfare",
+        "image_remote": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-4781.png"
     },
     {
         "team": 2,
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-5105.png",
+        "image": "/img/agents/ground-rebel-elite-crew.webp",
         "model": "tm_leet/tm_leet_variantg",
-        "agent_name": "Ground Rebel  | Elite Crew"
+        "agent_name": "Ground Rebel  | Elite Crew",
+        "image_remote": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-5105.png"
     },
     {
         "team": 2,
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-5106.png",
+        "image": "/img/agents/osiris-elite-crew.webp",
         "model": "tm_leet/tm_leet_varianth",
-        "agent_name": "Osiris | Elite Crew"
+        "agent_name": "Osiris | Elite Crew",
+        "image_remote": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-5106.png"
     },
     {
         "team": 2,
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-5107.png",
+        "image": "/img/agents/prof-shahmat-elite-crew.webp",
         "model": "tm_leet/tm_leet_varianti",
-        "agent_name": "Prof. Shahmat | Elite Crew"
+        "agent_name": "Prof. Shahmat | Elite Crew",
+        "image_remote": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-5107.png"
     },
     {
         "team": 2,
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-5108.png",
+        "image": "/img/agents/the-elite-mr-muhlik-elite-crew.webp",
         "model": "tm_leet/tm_leet_variantf",
-        "agent_name": "The Elite Mr. Muhlik | Elite Crew"
+        "agent_name": "The Elite Mr. Muhlik | Elite Crew",
+        "image_remote": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-5108.png"
     },
     {
         "team": 2,
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-5109.png",
+        "image": "/img/agents/jungle-rebel-elite-crew.webp",
         "model": "tm_leet/tm_leet_variantj",
-        "agent_name": "Jungle Rebel | Elite Crew"
+        "agent_name": "Jungle Rebel | Elite Crew",
+        "image_remote": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-5109.png"
     },
     {
         "team": 2,
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-5205.png",
+        "image": "/img/agents/soldier-phoenix.webp",
         "model": "tm_phoenix/tm_phoenix_varianth",
-        "agent_name": "Soldier | Phoenix"
+        "agent_name": "Soldier | Phoenix",
+        "image_remote": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-5205.png"
     },
     {
         "team": 2,
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-5206.png",
+        "image": "/img/agents/enforcer-phoenix.webp",
         "model": "tm_phoenix/tm_phoenix_variantf",
-        "agent_name": "Enforcer | Phoenix"
+        "agent_name": "Enforcer | Phoenix",
+        "image_remote": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-5206.png"
     },
     {
         "team": 2,
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-5207.png",
+        "image": "/img/agents/slingshot-phoenix.webp",
         "model": "tm_phoenix/tm_phoenix_variantg",
-        "agent_name": "Slingshot | Phoenix"
+        "agent_name": "Slingshot | Phoenix",
+        "image_remote": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-5207.png"
     },
     {
         "team": 2,
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-5208.png",
+        "image": "/img/agents/street-soldier-phoenix.webp",
         "model": "tm_phoenix/tm_phoenix_varianti",
-        "agent_name": "Street Soldier | Phoenix"
+        "agent_name": "Street Soldier | Phoenix",
+        "image_remote": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-5208.png"
     },
     {
         "team": 3,
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-5305.png",
+        "image": "/img/agents/operator-fbi-swat.webp",
         "model": "ctm_fbi/ctm_fbi_variantf",
-        "agent_name": "Operator | FBI SWAT"
+        "agent_name": "Operator | FBI SWAT",
+        "image_remote": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-5305.png"
     },
     {
         "team": 3,
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-5306.png",
+        "image": "/img/agents/markus-delrow-fbi-hrt.webp",
         "model": "ctm_fbi/ctm_fbi_variantg",
-        "agent_name": "Markus Delrow | FBI HRT"
+        "agent_name": "Markus Delrow | FBI HRT",
+        "image_remote": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-5306.png"
     },
     {
         "team": 3,
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-5307.png",
+        "image": "/img/agents/michael-syfers-fbi-sniper.webp",
         "model": "ctm_fbi/ctm_fbi_varianth",
-        "agent_name": "Michael Syfers  | FBI Sniper"
+        "agent_name": "Michael Syfers  | FBI Sniper",
+        "image_remote": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-5307.png"
     },
     {
         "team": 3,
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-5308.png",
+        "image": "/img/agents/special-agent-ava-fbi.webp",
         "model": "ctm_fbi/ctm_fbi_variantb",
-        "agent_name": "Special Agent Ava | FBI"
+        "agent_name": "Special Agent Ava | FBI",
+        "image_remote": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-5308.png"
     },
     {
         "team": 3,
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-5400.png",
+        "image": "/img/agents/3rd-commando-company-ksk.webp",
         "model": "ctm_st6/ctm_st6_variantk",
-        "agent_name": "3rd Commando Company | KSK"
+        "agent_name": "3rd Commando Company | KSK",
+        "image_remote": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-5400.png"
     },
     {
         "team": 3,
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-5401.png",
+        "image": "/img/agents/seal-team-6-soldier-nswc-seal.webp",
         "model": "ctm_st6/ctm_st6_variante",
-        "agent_name": "Seal Team 6 Soldier | NSWC SEAL"
+        "agent_name": "Seal Team 6 Soldier | NSWC SEAL",
+        "image_remote": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-5401.png"
     },
     {
         "team": 3,
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-5402.png",
+        "image": "/img/agents/buckshot-nswc-seal.webp",
         "model": "ctm_st6/ctm_st6_variantg",
-        "agent_name": "Buckshot | NSWC SEAL"
+        "agent_name": "Buckshot | NSWC SEAL",
+        "image_remote": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-5402.png"
     },
     {
         "team": 3,
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-5403.png",
+        "image": "/img/agents/two-times-mccoy-usaf-tacp.webp",
         "model": "ctm_st6/ctm_st6_variantm",
-        "agent_name": "'Two Times' McCoy | USAF TACP"
+        "agent_name": "'Two Times' McCoy | USAF TACP",
+        "image_remote": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-5403.png"
     },
     {
         "team": 3,
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-5404.png",
+        "image": "/img/agents/lt-commander-ricksaw-nswc-seal.webp",
         "model": "ctm_st6/ctm_st6_varianti",
-        "agent_name": "Lt. Commander Ricksaw | NSWC SEAL"
+        "agent_name": "Lt. Commander Ricksaw | NSWC SEAL",
+        "image_remote": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-5404.png"
     },
     {
         "team": 3,
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-5405.png",
+        "image": "/img/agents/primeiro-tenente-brazilian-1st-battalion.webp",
         "model": "ctm_st6/ctm_st6_variantn",
-        "agent_name": "Primeiro Tenente | Brazilian 1st Battalion"
+        "agent_name": "Primeiro Tenente | Brazilian 1st Battalion",
+        "image_remote": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-5405.png"
     },
     {
         "team": 2,
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-5500.png",
+        "image": "/img/agents/dragomir-sabre.webp",
         "model": "tm_balkan/tm_balkan_variantf",
-        "agent_name": "Dragomir | Sabre"
+        "agent_name": "Dragomir | Sabre",
+        "image_remote": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-5500.png"
     },
     {
         "team": 2,
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-5501.png",
+        "image": "/img/agents/maximus-sabre.webp",
         "model": "tm_balkan/tm_balkan_varianti",
-        "agent_name": "Maximus | Sabre"
+        "agent_name": "Maximus | Sabre",
+        "image_remote": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-5501.png"
     },
     {
         "team": 2,
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-5502.png",
+        "image": "/img/agents/rezan-the-ready-sabre.webp",
         "model": "tm_balkan/tm_balkan_variantg",
-        "agent_name": "Rezan The Ready | Sabre"
+        "agent_name": "Rezan The Ready | Sabre",
+        "image_remote": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-5502.png"
     },
     {
         "team": 2,
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-5503.png",
+        "image": "/img/agents/blackwolf-sabre.webp",
         "model": "tm_balkan/tm_balkan_variantj",
-        "agent_name": "Blackwolf | Sabre"
+        "agent_name": "Blackwolf | Sabre",
+        "image_remote": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-5503.png"
     },
     {
         "team": 2,
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-5504.png",
+        "image": "/img/agents/the-doctor-romanov-sabre.webp",
         "model": "tm_balkan/tm_balkan_varianth",
-        "agent_name": "'The Doctor' Romanov | Sabre"
+        "agent_name": "'The Doctor' Romanov | Sabre",
+        "image_remote": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-5504.png"
     },
     {
         "team": 2,
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-5505.png",
+        "image": "/img/agents/dragomir-sabre-footsoldier.webp",
         "model": "tm_balkan/tm_balkan_variantl",
-        "agent_name": "Dragomir | Sabre Footsoldier"
+        "agent_name": "Dragomir | Sabre Footsoldier",
+        "image_remote": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-5505.png"
     },
     {
         "team": 3,
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-5601.png",
+        "image": "/img/agents/b-squadron-officer-sas.webp",
         "model": "ctm_sas/ctm_sas_variantf",
-        "agent_name": "B Squadron Officer | SAS"
+        "agent_name": "B Squadron Officer | SAS",
+        "image_remote": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-5601.png"
     },
     {
         "team": 3,
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-5602.png",
+        "image": "/img/agents/d-squadron-officer-nzsas.webp",
         "model": "ctm_sas/ctm_sas_variantg",
-        "agent_name": "D Squadron Officer | NZSAS"
+        "agent_name": "D Squadron Officer | NZSAS",
+        "image_remote": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/agent-5602.png"
     }
 ]

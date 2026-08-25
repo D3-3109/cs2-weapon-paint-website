@@ -15,10 +15,15 @@
     "plugin:sync": "node scripts/sync-plugin-data.mjs",
     "plugin:update": "node scripts/sync-plugin-data.mjs --fetch --sync",
     "skins:images": "node scripts/patch-skin-images.mjs",
+    "images:mirror": "node scripts/mirror-images.mjs",
+    "images:check": "node scripts/mirror-images.mjs --check",
     "textures:manifest": "node scripts/build-3d-manifest.mjs",
     "release": "node scripts/make-release.mjs"
   },
   "dependencies": {
     "fs-extra": "^11.3.1"
+  },
+  "devDependencies": {
+    "sharp": "^0.35.3"
   }
 }

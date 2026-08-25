@@ -95,6 +95,11 @@ function makeOptionalZip() {
 console.log('Bumping cache version…')
 bumpCacheVersion({ reason: 'release' })
 
+if (process.env.WP_SKIP_IMAGE_MIRROR !== '1') {
+  console.log('Mirroring remote images (WP_SKIP_IMAGE_MIRROR=1 to skip)…')
+  run('node', ['scripts/mirror-images.mjs'])
+}
+
 console.log('Building frontend + api…')
 run('pnpm', ['--dir', 'frontend', 'exec', 'vite', 'build', '--emptyOutDir'])
 run('node', ['copy-backend.js'])
