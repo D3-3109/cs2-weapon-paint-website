@@ -142,6 +142,7 @@ function collectTasks() {
       // Self-heal: entry already points at a local path but the file is gone
       // (deleted by hand, interrupted cleanup, ...) -> re-fetch from image_remote.
       if (img.startsWith('/img/') && remoteFallback) {
+        used.add(img)
         const abs = path.join(imgRoot, img.replace('/img/', ''))
         if (!fs.existsSync(abs)) {
           tasks.push({
