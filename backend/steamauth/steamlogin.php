@@ -39,6 +39,7 @@ try {
             exit;
         }
 
+        session_regenerate_id(true);
         $_SESSION['steamid'] = $steamid;
         $_SESSION['login_at'] = time();
 

@@ -1,5 +1,5 @@
 /* Weapon Paints PWA service worker */
-const CACHE_VERSION = 'wp-pwa-v3'
+const CACHE_VERSION = 'wp-pwa-v4'
 const PRECACHE = [
   '/',
   '/index.html',
@@ -38,6 +38,9 @@ function shouldBypass(url) {
   const path = url.pathname
   if (path.startsWith('/api')) return true
   if (path.startsWith('/lielxd')) return true
+  if (path.startsWith('/images_qr/')) return true
+  if (path === '/qr-login' || path.startsWith('/qr-login/')) return true
+  if (url.searchParams.has('qr')) return true
   if (path.includes('steamauth')) return true
   if (path.endsWith('.php')) return true
   return false
@@ -61,8 +64,11 @@ self.addEventListener('fetch', (event) => {
     event.respondWith(
       fetch(req)
         .then((res) => {
-          const copy = res.clone()
-          caches.open(CACHE_VERSION).then((cache) => cache.put('/index.html', copy))
+          const contentType = res.headers.get('content-type') || ''
+          if (res.ok && contentType.includes('text/html')) {
+            const copy = res.clone()
+            caches.open(CACHE_VERSION).then((cache) => cache.put('/index.html', copy))
+          }
           return res
         })
         .catch(() =>

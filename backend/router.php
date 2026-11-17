@@ -6,7 +6,7 @@ if ($path === '/' && isset($_GET['qr'])) {
     require __DIR__ . '/qr.php';
     return true;
 }
-if ($path === '/qr-login' && isset($_GET['token'])) {
+if ($path === '/qr-login') {
     require __DIR__ . '/qr-login.php';
     return true;
 }

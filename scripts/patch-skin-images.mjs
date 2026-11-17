@@ -76,6 +76,15 @@ function patchSkinsFile(filePath, maps) {
       unmatched += 1
       continue
     }
+    if (typeof skin.image === 'string' && skin.image.startsWith('/img/')) {
+      if (skin.image_remote === next) {
+        already += 1
+        continue
+      }
+      skin.image_remote = next
+      updated += 1
+      continue
+    }
     if (skin.image === next) {
       already += 1
       continue
@@ -111,6 +120,15 @@ function patchGlovesFile(filePath, maps) {
       null
     if (!next) {
       unmatched += 1
+      continue
+    }
+    if (typeof glove.image === 'string' && glove.image.startsWith('/img/')) {
+      if (glove.image_remote === next) {
+        already += 1
+        continue
+      }
+      glove.image_remote = next
+      updated += 1
       continue
     }
     if (glove.image === next) {
