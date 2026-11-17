@@ -13,6 +13,7 @@ import {
   STICKER_SLOT_COUNT,
 } from '../lib/stickerFormat'
 import { loadSiteConfig } from '../lib/siteConfig'
+import { fetchJsonCached } from '../lib/dataCache'
 import { askConfirm } from '../lib/dialogs'
 import '../styles/Weapon3DPreview.css'
 
@@ -83,44 +84,65 @@ export default function WeaponCustomizer({ weapon, onClose, onSave, onReset }) {
     }
   }, [beta3d, previewMode])
 
-  useEffect(() => {
-    if (!isCustom) return
-    if (isAgent) {
-      weapon.custom = 'agent'
-    } else if (isGloves) {
-      weapon.custom = 'gloves'
-    } else if (isMusic) {
-      weapon.custom = 'music'
-    } else if (isPin) {
-      weapon.custom = 'pin'
-    } else {
-      weapon.custom = 'other'
-    }
-  }, [weapon, isCustom, isAgent, isGloves, isMusic, isPin])
+  const customType = isAgent
+    ? 'agent'
+    : isGloves
+      ? 'gloves'
+      : isMusic
+        ? 'music'
+        : isPin
+          ? 'pin'
+          : 'other'
+
+  const effectiveTeam = weapon.name.includes('ct_agent')
+    ? 3
+    : weapon.name.includes('tt_agent')
+      ? 2
+      : Number(weapon.team ?? 3)
 
   useEffect(() => {
-    if (isCustom) return
-    fetch('/data/skins_en.json')
-      .then((res) => res.json())
+    if (isCustom) return undefined
+    let cancelled = false
+
+    fetchJsonCached('/data/skins_en.json')
       .then((data) => {
-        const matchingSkins = data.filter((s) => s.weapon_name.endsWith(weapon.name))
-        matchingSkins.forEach((skin, index) => {
-          skin.key = `skin_${skin.paint}_${index}`
-        })
+        if (cancelled) return
+        const matchingSkins = (data || [])
+          .filter((skin) => skin.weapon_name.endsWith(weapon.name))
+          .map((skin, index) => ({
+            ...skin,
+            key: `skin_${skin.paint}_${index}`,
+          }))
+
         setSkins(matchingSkins)
         const selected = matchingSkins.find(
           (skin) => Number(skin.paint) === Number(weapon.savedPaint),
         )
         setSelectedSkin(selected || null)
       })
+      .catch((err) => {
+        console.error('Failed to load skins catalog:', err)
+      })
 
-    fetch('/data/keychains_en.json')
-      .then((res) => res.json())
-      .then(setKeychains)
+    fetchJsonCached('/data/keychains_en.json')
+      .then((data) => {
+        if (!cancelled) setKeychains(data || [])
+      })
+      .catch((err) => {
+        console.error('Failed to load keychains catalog:', err)
+      })
 
-    fetch('/data/stickers_en.json')
-      .then((res) => res.json())
-      .then(setStickers)
+    fetchJsonCached('/data/stickers_en.json')
+      .then((data) => {
+        if (!cancelled) setStickers(data || [])
+      })
+      .catch((err) => {
+        console.error('Failed to load stickers catalog:', err)
+      })
+
+    return () => {
+      cancelled = true
+    }
   }, [weapon, isCustom])
 
   useEffect(() => {
@@ -160,30 +182,10 @@ export default function WeaponCustomizer({ weapon, onClose, onSave, onReset }) {
   }, [stickers, weapon, isCustom])
 
   useEffect(() => {
-    if (isCustom) return
-    if (!isKnife) {
-      setKeychainId(weapon.savedKeychainId ?? '')
-      setOffsetX(weapon.savedKeychainOffsetX ?? 0)
-      setOffsetY(weapon.savedKeychainOffsetY ?? 0)
-      setOffsetZ(weapon.savedKeychainOffsetZ ?? 0)
-      setKeychainSeed(weapon.savedKeychainSeed ?? 0)
-    }
-  }, [weapon, isCustom, isKnife])
-
-  useEffect(() => {
     if (!isCustom) return
-    let name = weapon.name
-    if (name.includes('ct_agent')) {
-      weapon.customname = 'Agent | Default'
-      weapon.team = 3
-    }
-    if (name.includes('tt_agent')) {
-      weapon.customname = 'Agent | Default'
-      weapon.team = 2
-    }
     if (weapon.image) {
       setSelectedSkin({
-        paint_name: name,
+        paint_name: weapon.name,
         image: weapon.image,
         model: weapon.model ? weapon.model : 'Default Model',
       })
@@ -191,46 +193,59 @@ export default function WeaponCustomizer({ weapon, onClose, onSave, onReset }) {
   }, [weapon, isCustom])
 
   useEffect(() => {
-    if (!isCustom || !isAgent) return
-    const team = weapon.team ?? '3'
-    fetch('/data/agents_en.json')
-      .then((res) => res.json())
+    if (!isCustom || !isAgent) return undefined
+    let cancelled = false
+
+    fetchJsonCached('/data/agents_en.json')
       .then((data) => {
-        const filteredSkins = data.filter((skin) => skin.team === team)
-        const filteredSkinsNoIMG = filteredSkins.filter(
-          (skin) => skin.image && skin.image.trim() !== '',
-        )
-        let i = 0
-        filteredSkinsNoIMG.forEach((skin) => {
-          skin.key = `agent_${i}`
-          skin.paint_name = skin.agent_name || 'Default Agent'
-          i += 1
-        })
+        if (cancelled) return
+        const agentSkins = (data || [])
+          .filter(
+            (skin) =>
+              Number(skin.team) === effectiveTeam &&
+              skin.image &&
+              skin.image.trim() !== '',
+          )
+          .map((skin, index) => ({
+            ...skin,
+            key: `agent_${index}`,
+            paint_name: skin.agent_name || 'Default Agent',
+          }))
+
         setSelectedSkin({
           paint_name: weapon.agent_name || 'Default Agent',
           image: weapon.image,
           model: weapon.model ? weapon.model : 'Default Model',
         })
-        setSkins(filteredSkinsNoIMG)
+        setSkins(agentSkins)
       })
-  }, [weapon, isCustom, isAgent])
+      .catch((err) => {
+        console.error('Failed to load agents catalog:', err)
+      })
+
+    return () => {
+      cancelled = true
+    }
+  }, [weapon, isCustom, isAgent, effectiveTeam])
 
   useEffect(() => {
-    if (!isCustom || !isGloves) return
-    const team = weapon.team ?? '3'
+    if (!isCustom || !isGloves) return undefined
+    let cancelled = false
+    const fallbackGloveImage =
+      effectiveTeam === 2 ? '/others/tt_gloves.png' : '/others/ct_gloves.png'
+
     setWear(weapon.wear ?? 0)
     setSeed(weapon.seed ?? 0)
-    fetch('/data/gloves_en.json')
-      .then((res) => res.json())
+
+    fetchJsonCached('/data/gloves_en.json')
       .then((data) => {
-        const matchingSkins = data
-        matchingSkins.forEach((skin) => {
-          if (!skin.image || skin.image.trim() === '') {
-            skin.image =
-              Number(team) === 2 ? '/others/tt_gloves.png' : '/others/ct_gloves.png'
-          }
-          skin.key = `${skin.weapon_defindex}_${skin.paint}`
-        })
+        if (cancelled) return
+        const matchingSkins = (data || []).map((skin) => ({
+          ...skin,
+          image: skin.image && skin.image.trim() !== '' ? skin.image : fallbackGloveImage,
+          key: `${skin.weapon_defindex}_${skin.paint}`,
+        }))
+
         const selected = matchingSkins.find(
           (glove) =>
             glove.weapon_defindex === weapon.defindex &&
@@ -239,14 +254,23 @@ export default function WeaponCustomizer({ weapon, onClose, onSave, onReset }) {
         setSelectedSkin(selected || null)
         setSkins(matchingSkins)
       })
-  }, [weapon, isCustom, isGloves])
+      .catch((err) => {
+        console.error('Failed to load gloves catalog:', err)
+      })
+
+    return () => {
+      cancelled = true
+    }
+  }, [weapon, isCustom, isGloves, effectiveTeam])
 
   useEffect(() => {
-    if (!isCustom || (!isMusic && !isPin)) return
+    if (!isCustom || (!isMusic && !isPin)) return undefined
+    let cancelled = false
     const url = isMusic ? '/data/music_en.json' : '/data/collectibles_en.json'
-    fetch(url)
-      .then((res) => res.json())
+
+    fetchJsonCached(url)
       .then((data) => {
+        if (cancelled) return
         const list = (data || []).map((row, index) => ({
           ...row,
           key: `${isMusic ? 'music' : 'pin'}_${row.id}_${index}`,
@@ -259,6 +283,13 @@ export default function WeaponCustomizer({ weapon, onClose, onSave, onReset }) {
           list.find((row) => String(row.id) === String(selectedId)) || null
         setSelectedSkin(selected)
       })
+      .catch((err) => {
+        console.error('Failed to load addon catalog:', err)
+      })
+
+    return () => {
+      cancelled = true
+    }
   }, [weapon, isCustom, isMusic, isPin])
 
   const handleSave = async () => {
@@ -266,7 +297,7 @@ export default function WeaponCustomizer({ weapon, onClose, onSave, onReset }) {
       if (isAgent) {
         await onSave({
           type: 'custom',
-          other: weapon.custom,
+          other: customType,
           model: selectedSkin?.model || 'Default Model',
           team: selectedSkin?.team || null,
           name_main: weapon.name || 'NONE',
@@ -277,7 +308,7 @@ export default function WeaponCustomizer({ weapon, onClose, onSave, onReset }) {
       if (isGloves) {
         await onSave({
           type: 'custom',
-          other: weapon.custom,
+          other: customType,
           paint: selectedSkin?.paint ?? 0,
           team: weapon.team || null,
           defindex: selectedSkin?.weapon_defindex || 0,

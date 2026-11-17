@@ -1,4 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap');
+@font-face {
+  font-family: 'Oswald';
+  src: local('Oswald'), local('Bahnschrift SemiCondensed'), local('Bahnschrift'), local('Arial Narrow');
+  font-weight: 500 700;
+  font-display: swap;
+}
 
 /* -- Skins page shell: always full viewport width -- */
 body.skinspage {
@@ -13,7 +18,7 @@ body.skinspage {
   overflow-x: hidden;
   background: #0a0d11;
   color: #c7d5e0;
-  font-family: 'Noto Sans', 'Segoe UI', sans-serif;
+  font-family: 'Noto Sans', 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', system-ui, sans-serif;
 }
 
 body.skinspage #root,

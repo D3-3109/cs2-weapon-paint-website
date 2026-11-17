@@ -1,6 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap');
-
-/* Steam-adjacent UI - Motiva fallback → Noto Sans */
+/* Steam-adjacent UI - local system + CJK font stack (no render-blocking Google Fonts CDN) */
 :root {
   --steam-bg: #1b2838;
   --steam-panel: #171a21;
@@ -12,7 +10,7 @@
   --steam-muted: #8f98a0;
   --steam-white: #fff;
   --wp-brass: #c9a227;
-  --login-font: 'Noto Sans', 'Segoe UI', Tahoma, sans-serif;
+  --login-font: 'Noto Sans', 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', system-ui, sans-serif;
 }
 
 body.login-page {
